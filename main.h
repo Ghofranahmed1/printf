@@ -20,4 +20,5 @@ int _putchar(char c);
 int (*read_func(char c))(va_list, int);
 int _printf(const char *format, ...);
 
+#endif
 		
