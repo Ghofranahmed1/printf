@@ -3,6 +3,8 @@
 
 #include <stdio.h>
 #include <stdarg.h>
+#include<unistd.h>
+
 
 /**
  * func_Array - structure that holds format conversion specifiers.
@@ -15,10 +17,9 @@ typedef struct func_Array
 	char holder;
 	int (*f_ptr)(va_list, int);
 } func;
-
+int _strlen(char *str);
 int _putchar(char c);
 int (*read_func(char c))(va_list, int);
 int _printf(const char *format, ...);
-
 #endif
 		
