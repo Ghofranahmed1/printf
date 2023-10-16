@@ -17,11 +17,10 @@ typedef struct func_Array
 	char holder;
 	int (*f_ptr)(va_list, int);
 } func;
-int _strlen(char *str);
 int _putchar(char c);
 int (*read_func(char c))(va_list, int);
 int _printf(const char *format, ...);
 int handle_format(const char *format, va_list args);
-
+int _strlen(char *str);
 #endif
 		

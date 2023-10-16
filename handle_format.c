@@ -1,13 +1,10 @@
 #include "main.h"
-
 /**
  * handle_format - a function to print a character and string
  * @format -list of speacifiers
  * @args: list of char or string that will pull
  * Return: number of char's that printed
  */
-
-
 int handle_format(const char *format, va_list args)
 {
 	int count = 0, str_len = 0;
@@ -25,15 +22,12 @@ int handle_format(const char *format, va_list args)
 		str = va_arg(args, char *);
 		if (str)
 		{
-		while(str[str_len] != '\0')
-			str_len++;
+		str_len = _strlen(str);
 		write(1, str, str_len);
 		count += str_len;
 		}
 		else
-		{
 			write(1, "(null)", 6);
-		}
 	}
 	else
 	{
@@ -41,9 +35,5 @@ int handle_format(const char *format, va_list args)
 		write(1, format, 1);
 		count += 2;
 	}
-
-
 	return (count);
 }
-
-
