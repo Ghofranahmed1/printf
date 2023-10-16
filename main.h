@@ -17,6 +17,7 @@ typedef struct func_Array
 	char holder;
 	int (*f_ptr)(va_list, int);
 } func;
+void itoa(int num, char *str);
 int _putchar(char c);
 int (*read_func(char c))(va_list, int);
 int _printf(const char *format, ...);

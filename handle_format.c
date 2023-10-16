@@ -7,7 +7,7 @@
  */
 int handle_format(const char *format, va_list args)
 {
-	int count = 0, str_len = 0;
+	int count = 0, str_len = 0, num_len = 0;
 	char holder;
 	char *str;
 
@@ -22,12 +22,23 @@ int handle_format(const char *format, va_list args)
 		str = va_arg(args, char *);
 		if (str)
 		{
-		str_len = _strlen(str);
+		while(str[str_len] != '\0')
+str_len++;
 		write(1, str, str_len);
 		count += str_len;
 		}
 		else
 			write(1, "(null)", 6);
+	}
+	else if (*format == 'd' || *format == 'i')
+	{
+		int num = va_arg(args,int);
+		char num_str[12];
+		itoa(num, num_str);
+		while (num_str[num_len] != '\0')
+			num_len++;
+		write(1,num_str, num_len);
+		count += num_len;
 	}
 	else
 	{
