@@ -7,46 +7,44 @@
 
 int _printf(const char *format, ...)
 {
-	int char_print = 0;
-	va_list list_args;
+	int i = 0;
+	int count = 0;
+	va_list list;
 
-	if (format == NULL)
+	va_start(list, format);
+	if (!(format))
 		return (-1);
-	va_start(list_args, format);
-	while (*format)
+	while (format && format[i])
 	{
-		if (*format != '%')
+		if (format[i] == '%')
 		{
-			write(1, format, 1);
-			char_print++;
-		}
-		else if (*format == '%' && format[1] == '%')
-		{
-			write (1, "%%", 2);
-			char_print += 2;
-			format++;
-		}
-			else if (*format == 'c' || *format == 's')
+			i++;
+			if (format[i] == '%')
 			{
-				if (*format == 'c')
-				{
-					char c = va_arg(args, int)
-				write(1, &c, 1);
-				char_print++;
-				}
-				else if (*format == 's')
-				{
-					char *str = va_arg(list_args, char*);
-					int len1 = 0;
-					while (str[len1] != '\0')
-                                               len1++;
-                                write(1, str, len1);
-                                char_print += len1;
-				}
+				count += _putchar(format[i]);
+				i++;
+				continue;
 			}
+			if (format[i] == '\0')
+				return (-1);
+			get_func = read_func(format[i]);
+			if (get_func != NULL)
+				count = get_func(list, count);
+			else
+			{
+				count += _putchar(format[i - 1]);
+				count += _putchar(format[i]);
+			}
+			i++;
+
 		}
-		format++;
+		else
+		{
+			count += _putchar(format[i]); 
+			i++;
+		}
+
 	}
-	va_end(list_args);
-	return (char_print);
+	va_end(list);
+	return (count);
 }
