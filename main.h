@@ -29,6 +29,11 @@ int _putchar_int(int, int);
 int print_numbers(unsigned long n, unsigned int base, const char *digits);
 unsigned int find_length(unsigned int, int);
 int _printf(const char *format, ...);
+<<<<<<< HEAD
 int (*get_func)(va_list, int);
+=======
+int handle_format(const char *format, va_list args);
+
+>>>>>>> a7d930bf02ee85f696b50ef4bf98e91739103672
 #endif
 		

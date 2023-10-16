@@ -7,45 +7,8 @@
  */
 int _printf(const char *format, ...)
 {
-<<<<<<< HEAD
-	int i = 0;
-	int count = 0;
-	va_list list;
-
-	va_start(list, format);
-	if (!(format))
-		return (-1);
-	while (format && format[i])
-	{
-		if (format[i] == '%')
-		{
-			i++;
-			if (format[i] == '%')
-			{
-				count += _putchar(format[i]);
-				i++;
-				continue;
-			}
-			if (format[i] == '\0')
-				return (-1);
-			get_func = read_func(format[i]);
-			if (get_func != NULL)
-				count = get_func(list, count);
-			else
-			{
-				count += _putchar(format[i - 1]);
-				count += _putchar(format[i]);
-			}
-			i++;
-
-		}
-		else
-		{
-			count += _putchar(format[i]); 
-			i++;
-=======
 	va_list args;
-        int char_print = 0;
+int char_print = 0;
 
 	if (!format)
 		return (-1);
@@ -56,7 +19,7 @@ int _printf(const char *format, ...)
 		{
 			write(1, "%", 1);
 			char_print += 1;
-			format += 2;
+			format += 1;
 		}
 		else if (*format == '%')
 		{
@@ -67,15 +30,9 @@ int _printf(const char *format, ...)
 		{
 			write(1, format, 1);
 			char_print++;
->>>>>>> 88a312ff004e90d340bcbdc76587afc47b91b03d
 		}
-
+		format++;
 	}
-<<<<<<< HEAD
-	va_end(list);
-	return (count);
-=======
 	va_end(args);
 	return (char_print);
->>>>>>> 88a312ff004e90d340bcbdc76587afc47b91b03d
 }
