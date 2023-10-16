@@ -1,4 +1,4 @@
-#incude "main.h"
+#include "main.h"
 
 /**
  * _putchar - A function that print 
@@ -9,5 +9,5 @@
 
 int _putchar(char c)
 {
-	return (writ(1, &c, 1));
+	return (write(1, &c, 1));
 }

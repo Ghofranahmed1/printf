@@ -13,15 +13,13 @@ int (*read_func(char c))(va_list, int)
 		{'c', print_char},
 		{'s', print_str},
 		{'%', print_per},
-		{'d', print_int},
-		{'i', print_int},
 	};
 
 	int i = 0;
 
 	while (all_func[i].holder != '\0')
 	{
-		if (all_func[i] == c)
+		if (all_func[i].holder == c)
 			return (all_func[i].f_ptr);
 		i++;
 	}

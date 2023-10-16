@@ -21,7 +21,7 @@ FUNCTIONS
 _printf.c: 
 
 Contains the _printf function.
-Prototype:  int _printf(const char *format , ...);. 
+Prototype:  int _printf(const char *format , ...); 
 Returns the number of characters written to string. 
 Returns -1 on failure.
 
@@ -42,16 +42,16 @@ A function that writes characters to stdout.
 print_str();
 A function that writes strings to stdout. 
 
-print_rev();
-A function write string in reverse to stdout
+print_per();
+A function that writes a percent character to the stdout
 
 Prototype:
 int print_char(va_list list, int); 
 int print_str(va_list list, int); 
-int print_rev(va_list list, int length);
-Return: number of characters written. 
+int print_per(va_list list, int length);
+Return: number of characters written.
 
-print_numbers.c :
+print_numbers.c:
 
 Contains four functions all handling conversion specifiers d and i.
 
