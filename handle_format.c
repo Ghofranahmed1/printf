@@ -23,11 +23,25 @@ int handle_format(const char *format, va_list args)
 	else if (*format == 's')
 	{
 		str = va_arg(args, char *);
+		if (str)
+		{
 		while(str[str_len] != '\0')
 			str_len++;
 		write(1, str, str_len);
 		count += str_len;
+		}
+		else
+		{
+			write(1, "(null)", 6);
+		}
 	}
+	else
+	{
+		write(1, "%", 1);
+		write(1, format, 1);
+		count += 2;
+	}
+
 
 	return (count);
 }
