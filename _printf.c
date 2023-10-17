@@ -21,18 +21,26 @@ int char_print = 0;
 			char_print += 1;
 			format += 1;
 		}
-		else if (*format == '%')
+		else if (*format == '%' && (format[1] == 'c' || format[1] == 's'))
 		{
 			char_print += handle_format(format + 1, args);
 			format++;
 		}
-		else
+		else if (*format == '%' && (format[1] == 'i' || format[1] == 'd'))
+		{
+			char_print += handle_format_i_d(format + 1, args);
+			format++;
+
+		}
+
+		else 
 		{
 			write(1, format, 1);
+			format++;
 			char_print++;
 		}
-		format++;
 	}
+	char_print++;
 	va_end(args);
 	return (char_print);
 }
