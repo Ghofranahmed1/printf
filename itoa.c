@@ -16,13 +16,20 @@ void itoa(int num, char *str)
 		is_negative = 1;
 		num = -1 * num;
 	}
-	do 
+	if (num == 0)
+	{
+		str[i++] == '0';
+	}
+	else
+	{
+	while(num != 0)
 	{
 		str[i++] = num % 10 + '0';
 		num /= 10;
-	}while(num);
+	}
 	if (is_negative)
 		str[i++] = '-';
+	}
 	for (k = i - 1; k > 0; k--)
 	{
 		str[j++] = str[k];
