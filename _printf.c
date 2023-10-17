@@ -36,9 +36,9 @@ int char_print = 0;
 		else 
 		{
 			write(1, format, 1);
-			format++;
 			char_print++;
 		}
+		format++;
 	}
 	char_print++;
 	va_end(args);

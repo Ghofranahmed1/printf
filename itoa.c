@@ -6,10 +6,12 @@
  * @num: the intger to convert
  */
 
-void itoa(int num, char *str)
+char *itoa(int num)
 {
 	int i = 0, j = 0, k;
 	int is_negative = 0;
+	char *str;
+	str = malloc (sizeof(char) * 10);
 
 	if (num < 0)
 	{
@@ -18,7 +20,7 @@ void itoa(int num, char *str)
 	}
 	if (num == 0)
 	{
-		str[i++] == '0';
+		str[i] = '0';
 	}
 	else
 	{
@@ -35,4 +37,6 @@ void itoa(int num, char *str)
 		str[j++] = str[k];
 	}
 	str[j] = '\0';
+	return (str);
+	free(str);
 }
