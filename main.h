@@ -17,8 +17,13 @@ typedef struct func_Array
 {
 	char holder;
 	int (*f_ptr)(va_list, int);
+<<<<<<< HEAD
 }func;
 int _strlen(char *str);
+=======
+} func;
+void itoa(int num, char *str);
+>>>>>>> faab32e542d221d7735b5a860c30b75f77fbc877
 int _putchar(char c);
 int (*read_func(char c))(va_list, int);
 int print_char(va_list, int);
@@ -33,7 +38,11 @@ int _printf(const char *format, ...);
 int (*get_func)(va_list, int);
 =======
 int handle_format(const char *format, va_list args);
+<<<<<<< HEAD
 
 >>>>>>> a7d930bf02ee85f696b50ef4bf98e91739103672
+=======
+int _strlen(char *str);
+>>>>>>> faab32e542d221d7735b5a860c30b75f77fbc877
 #endif
 		
