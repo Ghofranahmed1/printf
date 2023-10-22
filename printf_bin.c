@@ -1,34 +1,36 @@
 #include "main.h"
 
 /**
- * printf_bin - prints a binary number.
- * @val: arguments.
- * Return: 1.
+ * print_b - check if argument is unsigned.
+ * @list: list of arguments.
+ * @length: number of chars printed.
+ * Return: length;
  */
-int printf_bin(va_list val)
-{
-	int flag = 0;
-	int cont = 0;
-	int i, a = 1, b;
-	unsigned int num = va_arg(val, unsigned int);
-	unsigned int p;
 
-	for (i = 0; i < 32; i++)
+int print_b(va_list list, int length)
+{
+	unsigned int n;
+
+	n = va_arg(list, int);
+	return (print_binary(n, length));
+}
+
+/**
+ * print_binary - converts an unsigned int to binary.
+ * @n: unsigned int to be converted.
+ * @len: length of characters printd.
+ * Return: length.
+ */
+
+int print_binary(unsigned int n, int len)
+{
+	/*count chars*/
+	if ((n / 2) != 0)
 	{
-		p = ((a << (31 - i)) & num);
-		if (p >> (31 - i))
-			flag = 1;
-		if (flag)
-		{
-			b = p >> (31 - i);
-			_putchar(b + 48);
-			cont++;
-		}
+		print_binary(n / 2, len);
 	}
-	if (cont == 0)
-	{
-		cont++;
-		_putchar('0');
-	}
-	return (cont);
+
+	_putchar((n % 2) + '0');
+	len += find_length(n, 2);
+	return (len + 1);
 }
