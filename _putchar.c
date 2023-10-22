@@ -1,10 +1,9 @@
-#include "main.h"
+#include <unistd.h>
 
 /**
- * _putchar - A function that print 
- * a single character at a time
- * @c - the argument to return
- * Return: the argument, Always (1) success
+ * _putchar - write to stdout.
+ * @c: char to be written.
+ * Return: number of chars written.
  */
 
 int _putchar(char c)
