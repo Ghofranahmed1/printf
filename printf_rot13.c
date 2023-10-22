@@ -1,37 +1,38 @@
 #include "main.h"
-/**
- * printf_rot13 - printf str to ROT13 place into buffer
- * @args: type struct va_arg where is allocated printf arguments
- * Return: counter
- *
- */
-int printf_rot13(va_list args)
-{
-	int i, j, counter = 0;
-	int k = 0;
-	char *s = va_arg(args, char*);
-	char alpha[] = {"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"};
-	char beta[] = {"nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM"};
 
-	if (s == NULL)
-		s = "(null)";
-	for (i = 0; s[i]; i++)
+/**
+ * print_rot13 - print 13th character from the input.
+ * @list: argument list.
+ * @length: length.
+ * Return: numer of chars printed.
+ */
+
+int print_rot13(va_list list, int length)
+{
+	int i, position;
+
+	char r1[] = "NOPQRSTUVWXYZABCDEFGHIJKLM nopqrstuvwxyzabcdefghijklm";
+
+	char *str = va_arg(list, char *);
+
+	if (str == NULL)
+		return (-1);
+
+	i = 0;
+	position = 0;
+	while (str[i])
 	{
-		k = 0;
-		for (j = 0; alpha[j] && !k; j++)
+		if ((str[i] >= 'A' && str[i] <= 'Z')
+				|| (str[i] >= 'a' && str[i] <= 'z'))
 		{
-			if (s[i] == alpha[j])
-			{
-				_putchar(beta[j]);
-				counter++;
-				k = 1;
-			}
+			position = str[i] - 65;
+			length += _putchar(r1[position]);
 		}
-		if (!k)
-		{
-			_putchar(s[i]);
-			counter++;
-		}
+		else
+			length += _putchar(str[i]);
+
+		i++;
 	}
-	return (counter);
+
+	return (length);
 }
