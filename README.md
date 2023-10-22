@@ -1,4 +1,4 @@
-PRINTF
+INTF
 
 INTRODUCTION
 
@@ -16,68 +16,34 @@ MAN PAGE
 
 man_3_printf
 
+Usage: man ./man_3_printf.
+
 FUNCTIONS
 
-_printf.c: 
+_printf.c
 
-Contains the _printf function.
-Prototype:  int _printf(const char *format , ...); 
-Returns the number of characters written to string. 
-Returns -1 on failure.
+Contains the _printf function. Prototype: int _printf(const char *format , ...);. Returns the number of characters written to string. Returns -1 on failure. get_func.c
 
-read_func.c:
+a function that returns a pointer to a function based on the format specifier. Prototype: int (*get_func(char c))(va_list, int);. If format specifier doe not exist, it returns NULL. Otherwise, it returns a function pointer. print_char.c
 
-A function that returns a pointer to a function based on the format specifier.
-Prototype:  int (*read_func(char c))(va_list, int);. 
-If format specifier does not exist, it returns NULL. 
-Otherwise, it returns a function pointer.
+Contains three functions handling format specifier %s, %r and %c. print_char() - A function that writes characters to stdout. print_str() - Function that writes strings to stdout. print_rev() - Function write string in reverse to stdout
 
-print_char.c:
+Prototype: int print_char(va_list list, int length); int print_str(va_list list, int length); int print_rev(va_list list, int length), Return: number of characters written. print_numbers.c Contains four functions all handling format specifiers %d and %i. print_int() - A function that checks for signed integers. _putchar_int() - A fuunction that writes signed integers to stdout. print_numbers() - A function that checks for numbers larger than INT_MAX.
 
-Contains three functions handling conversion specifiers c, s and %. 
+find_length() - A function that counts the digits in a numer.
 
-print_char();
-A function that writes characters to stdout. 
+Prototypes: int print_int(va_list list, int length) int _putchar_int(int n, int length) int print_numbers(unsigned long n, unsigned int base, const char *digits) unsigned int find_length(unsigned int n, int base). Return: An unsigned long integer and the current length of the number. Length of number written to stdout. A call to findlength. Number of digits in a number. print_binary.c
 
-print_str();
-A function that writes strings to stdout. 
+Contains two functions handling the custom format specifier %b. print_binary() - A funtction that converts an int to binary. print_b() - Initializes the arg to an unsigned int and calls print_binary(). Prototype: int print_b(va_list list, int length);. int print_binary(unsigned int n, int len);. Return: Length of printed binary. The value returned by print_binary print_hex.c
 
-print_per();
-A function that writes a percent character to the stdout
+Contains two functions handling the format specifiers %x and %X. print_hex() - A function that converts integer inputs to lowercase hexadecimal numbers. print_Hex() - A function that converts integer inputs to uppercase hexadecimal numbers. Prototype: int print_hex(va_list list, int length);. int print_Hex(va_list list, int length);. Return: number of hexadecimal characters written. print_octal.c
 
-Prototype:
-int print_char(va_list list, int); 
-int print_str(va_list list, int); 
-int print_per(va_list list, int length);
-Return: number of characters written.
+Contains a function that handles the format specifier %o. print_octal() - A function that coverts integer inputs to octal values. Prototype: int print_octal(va_list list, int length);. Return: Number of cotal character written to stdout. print_rot13.c
 
-print_numbers.c:
+Contains a function that handles the format specifier %R. print_rot13() - A function that prints a string encrypted using ROT13. Prototype: int print_rot13(va_list list, int length);. Return: Number of characters written to stdout.
 
-Contains four functions all handling conversion specifiers d and i.
+print_strings
 
-print_int();
-A function that checks for signed integers. 
+Contains a function that handles the format specifier %S.
 
-_putchar_int();
-A function that writes signed integers to stdout.
-
-print_numbers();
- A function that checks for numbers larger than INT_MAX.
-
-find_length();
-A function that counts the digits in a number.
-
-Prototypes: 
-int print_int(va_list list, int);
-int _putchar_int(int n, int  length);
-int print_numbers(unsigned long n, unsigned int base, const char *digits); unsigned int find_length(unsigned int n, int base);
-
-Return:
-An unsigned long integer and the current length of the number.
-Length of number written to stdout.
-A call to findlength.
-Number of digits in a number.
-
-
-
-
+print_Str() - prints the unprintable characters in their hexadecimal equivalent preceded with \x0 for on digit characters and \x for charcters with more than one digit. Prototype: int print_Str(va_list list, int length);. Return: Number of characters written to stdout.
